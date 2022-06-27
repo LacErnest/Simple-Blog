@@ -6,27 +6,29 @@ import BlogCreate from './components/BlogCreate'
 import BlogDetails from './components/BlogDetails'
 import NotFound from './components/NotFound'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <div className='content'>
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/create'>
-            <BlogCreate />
-          </Route>
-          <Route path='/blogs/:id'>
-            <BlogDetails />
-          </Route>
-          <Route path='*'>
-            <NotFound />
-          </Route>
-        </Switch>
+        <Router>
+          <Routes>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/create'>
+              <BlogCreate />
+            </Route>
+            <Route path='/blogs/:id'>
+              <BlogDetails />
+            </Route>
+            <Route path='*'>
+              <NotFound />
+            </Route>
+          </Routes>
+        </Router>
       </div>
     </div>
   );

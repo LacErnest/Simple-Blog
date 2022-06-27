@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 
 const BlogCreate = () => {
 
@@ -7,7 +7,7 @@ const BlogCreate = () => {
   const [body, setBody] = useState('')
   const [author, setAuthor] = useState('Ernest')
   const [isPending, setIsPending] = useState(false)
-  const history = useHistory()
+  const history = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDeafault()
@@ -34,10 +34,12 @@ const BlogCreate = () => {
         <label>Contenu</label>
         <textarea required value={body} onChange={(e) => setBody(e.target.value)} />
         <label>Auteur</label>
-        <input type='text' required value={author} onChange={(e) => setTitle(e.target.value)} />
+        <input type='text' required value={author} onChange={(e) => setAuthor(e.target.value)} />
         {!isPending && <button>Ajouter article</button>}
         {isPending && <button disabled>Ajout en Cours...</button>}
       </form>
     </div>
   )
 }
+
+export default BlogCreate

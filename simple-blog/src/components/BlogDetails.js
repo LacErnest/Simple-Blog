@@ -1,12 +1,12 @@
-import { useParams, useHistory } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router'
 
 import useFecth from '../hooks/useFetch'
 
-const BloDetails = () => {
+const BlogDetails = () => {
 
   const { id } = useParams();
   const { data: blog, error, isPending } = useFecth(`http://localost:3000/blogs/${id}`)
-  const history = useHistory()
+  const history = useNavigate()
 
   const handleClick = () => {
     fetch(`http://localhost:3000/blog/${blog.id}`, {
@@ -29,3 +29,5 @@ const BloDetails = () => {
     </div>
   )
 }
+
+export default BlogDetails
