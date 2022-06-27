@@ -5,7 +5,7 @@ import useFecth from '../hooks/useFetch'
 const Home = () => {
 
   const { data: blogs, isPending, error } = useFecth('http://localhost:3000/blogs');
-
+  console.log(blogs)
   return (
     <div className="home">
       {error && <div>{error}</div>}

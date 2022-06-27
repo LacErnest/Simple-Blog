@@ -5,14 +5,14 @@ import useFecth from '../hooks/useFetch'
 const BlogDetails = () => {
 
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFecth(`http://localost:3000/blogs/${id}`)
+  const { data: blog, error, isPending } = useFecth(`http://localhost:3000/blogs/${id}`)
   const history = useNavigate()
 
   const handleClick = () => {
     fetch(`http://localhost:3000/blog/${blog.id}`, {
       method: 'DELETE'
     }).then(() => {
-      history.push('/')
+      history('/')
     })
   }
 

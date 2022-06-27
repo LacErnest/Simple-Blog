@@ -14,7 +14,7 @@ const useFecth = (url) => {
           if (!res.ok) {
             throw Error('Ne peux pas charger les données depuis cette ressource')
           }
-          res.json()
+          return res.json()
         })
         .then((data) => {
           setData(data)

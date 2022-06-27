@@ -5,32 +5,27 @@ import Home from './components/Home'
 import BlogCreate from './components/BlogCreate'
 import BlogDetails from './components/BlogDetails'
 import NotFound from './components/NotFound'
+import ErrorBoundary from './ErrorBoundary'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <div className='content'>
-        <Router>
-          <Routes>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route path='/create'>
-              <BlogCreate />
-            </Route>
-            <Route path='/blogs/:id'>
-              <BlogDetails />
-            </Route>
-            <Route path='*'>
-              <NotFound />
-            </Route>
-          </Routes>
-        </Router>
-      </div>
-    </div>
+    <ErrorBoundary>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <div className='content'>
+            <Routes>
+              <Route exact path='/' element={<Home />} />
+              <Route path='/create' element={<BlogCreate />} />
+              <Route path='/blogs/:id' element={<BlogDetails />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </ErrorBoundary>
   );
 }
 
