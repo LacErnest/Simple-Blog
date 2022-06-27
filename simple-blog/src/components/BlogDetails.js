@@ -18,7 +18,7 @@ const BloDetails = () => {
 
   return (
     <div className='blog-details'>
-      {isPending && <div>Loading...</div>}
+      {isPending && <div>Chargement...</div>}
       {error && <div>{error}</div>}
       <article>
         <h2>{blog.title}</h2>
